@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Blog</title>
+	<link rel="stylesheet" href="/stylesheets/style.css"></head>
+	<script type="text/javascript" src="/javascripts/jquery.min.js" ></script>
+<body>
+	<header>
+		<h1><%= title %></h1>
+	</header>
+
+	<nav>
+		<span>
+			<a title="主页" href="/">home</a>
+		</span>
+
+		<% if (user) { %>
+		<span>
+			<a title="上传" href="/upload">Upload</a>
+		</span>
+		<span>
+			<a title="发布" href="/post">Post</a>
+		</span>
+		<span>
+			<a title="退出" href="/logout">Logout</a>
+		</span>
+		<span>
+			<div class="userInfo"><%- '你好,'+user.name %></div> 
+		</span>
+		<% }else{ %>
+		<span>
+			<a title="登录" href="/login">login</a>
+		</span>
+		<span>
+			<a title="注册" href="/reg">register</a>
+		</span>
+		<% } %>
+	</nav>
+
+	<article>
+	<% if (success) { %>
+	<div class="tipText"><%= success %></div> 
+	<% } %>
+	<% if (error) { %>
+	<div class="tipText"><%= error %></div> 
+	<% } %>

@@ -1,0 +1,26 @@
+<%- include header %>
+<div>
+<button id="insertInput"insertInput>Add input</button>
+</div>
+<div>
+<form method="post" action='/upload' enctype='multipart/form-data'>
+	<input type="file" name="file1" /><br />
+	<input type="submit" />
+</form>
+</div>
+<script type="text/javascript">
+	var inputCount = 1;
+	function addInput (){
+		inputCount = ++inputCount;
+		var addElement = "<input type=\"file\" name=\"file"+inputCount+"\" /><br /> "
+		$('br').last().after(addElement);
+		console.log (inputCount);
+	};
+
+	$(document).ready(function(){
+		$('#insertInput').bind('click',function(){
+			addInput();
+		});
+	});
+</script>
+<%- include footer %>

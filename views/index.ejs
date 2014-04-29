@@ -1,0 +1,12 @@
+<%- include header %>
+<h2>这里是我的Blog</h2>
+<% posts.forEach(function (post, index){ %>
+	<p><h2><a href="/u/<%= post.name+'/'+post.time.day+'/'+post.title %>"><%= post.title %></a></h2></p>
+	<p class="info">
+		作者:<a href="/u/<%= post.name %>"><%= post.name %></a>
+		日期:<%= ' '+post.time.minute+' ' %>
+		第: <%= posts.length-index %>篇
+	</p>
+	<p><%- post.post %></p>
+<% }) %>
+<%- include footer %>
